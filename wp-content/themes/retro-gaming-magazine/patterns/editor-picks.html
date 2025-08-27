@@ -1,0 +1,45 @@
+<?php
+/**
+ * Title: Editor Picks (Retro)
+ * Slug: retro/editor-picks
+ * Categories: retro-sections
+ * Description: Small image grid with titles and dates, styled retro.
+ */
+?>
+
+<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"40px","bottom":"40px"},"blockGap":"20px"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide">
+
+  <!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"2px","textTransform":"uppercase"},"color":{"text":"var(--wp--preset--color--neon-pink)"}}} -->
+  <h3 class="wp-block-heading">Editor Picks</h3>
+  <!-- /wp:heading -->
+
+  <!-- wp:query {"queryId":1,"query":{"perPage":3,"postType":"post","order":"desc","orderBy":"date","tagName":"editors-pick"},"displayLayout":{"type":"list"},"layout":{"inherit":false}} -->
+  <div class="wp-block-query">
+    <!-- wp:post-template -->
+
+      <!-- wp:group {"style":{"spacing":{"blockGap":"12px"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"left"}} -->
+      <div class="wp-block-group">
+
+        <!-- wp:post-featured-image {"isLink":true,"width":"80px","height":"80px","scale":"cover","style":{"border":{"radius":"4px"}}} /-->
+
+        <!-- wp:group {"style":{"spacing":{"blockGap":"6px"}},"layout":{"type":"constrained"}} -->
+        <div class="wp-block-group">
+          <!-- wp:post-title {"isLink":true,"level":5,"style":{"typography":{"fontSize":"16px","lineHeight":"1.4"},"color":{"text":"var(--wp--preset--color--text)"}}} /-->
+          <!-- wp:post-date {"format":"M j, Y","style":{"typography":{"fontSize":"13px"},"color":{"text":"#aaa"}}} /-->
+        </div>
+        <!-- /wp:group -->
+
+      </div>
+      <!-- /wp:group -->
+
+    <!-- /wp:post-template -->
+
+    <!-- wp:query-no-results -->
+      <!-- wp:paragraph --> <p>No picks yet.</p> <!-- /wp:paragraph -->
+    <!-- /wp:query-no-results -->
+  </div>
+  <!-- /wp:query -->
+
+</div>
+<!-- /wp:group -->

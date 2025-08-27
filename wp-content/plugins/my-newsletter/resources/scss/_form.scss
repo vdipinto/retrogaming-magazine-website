@@ -1,0 +1,65 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+.ns-form {
+  display: grid;
+  gap: $space-sm;
+  max-width: 420px;
+  padding: $space-md;
+  border: 1px solid #ddd;
+  border-radius: $radius;
+  background: #fafafa;
+  color: #222;
+
+  .ns-field {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    input {
+      padding: $space-sm;
+      border: 1px solid #ccc;
+      border-radius: $radius;
+      background: #fff;
+      color: inherit;
+
+      &:focus {
+        border-color: $brand;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(0, 115, 170, 0.2);
+      }
+    }
+  }
+
+  /* Use either mixin name */
+  .ns-submit {
+    @include button($brand);
+    // or: @include button-style($brand);
+  }
+
+  .ns-message {
+    font-size: 0.9rem;
+    margin-top: $space-sm;
+    &.error { color: $error; }
+    &.success { color: $success; }
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .ns-form {
+    background: $bg-dark;
+    border-color: $border-dark;
+    color: $text-dark;
+
+    .ns-field input {
+      background: $bg-dark;
+      border-color: $border-dark;
+      color: $text-dark;
+    }
+  }
+}

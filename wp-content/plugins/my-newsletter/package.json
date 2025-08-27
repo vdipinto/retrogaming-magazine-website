@@ -1,0 +1,14 @@
+{
+  "name": "my-newsletter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Newsletter plugin assets (built with Vite)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "sass": "^1.90.0",
+    "vite": "^7.1.3"
+  }
+}

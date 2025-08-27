@@ -1,0 +1,21 @@
+@use "sass:color";
+@use "./variables" as *;
+
+@mixin button($bg, $fg: #fff) {
+  background: $bg;
+  color: $fg;
+  padding: $space-sm $space-md;
+  border: 0;
+  border-radius: $radius;
+  cursor: pointer;
+  font-weight: 600;
+
+  &:hover {
+    background: color.adjust($bg, $lightness: -7%);
+  }
+}
+
+/* Compat alias so existing code using `button-style` still works */
+@mixin button-style($bg, $fg: #fff) {
+  @include button($bg, $fg);
+}

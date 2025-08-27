@@ -1,0 +1,13 @@
+@use "./variables" as *;
+
+body {
+  font-family: $font-stack;
+  line-height: 1.5;
+  color: #222;
+}
+
+.ns-form input,
+.ns-form button {
+  font-family: inherit;
+  font-size: 1rem;
+}

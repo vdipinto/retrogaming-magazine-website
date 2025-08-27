@@ -1,0 +1,88 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "layout": {
+      "contentSize": "720px",
+      "wideSize": "1100px"
+    },
+    "color": {
+      "defaultPalette": false,
+      "palette": [
+        { "slug": "bg", "name": "Background", "color": "#ffffff" },
+        { "slug": "fg", "name": "Foreground", "color": "#111111" },
+        { "slug": "accent", "name": "Accent", "color": "#0a7cff" },
+        { "slug": "alt", "name": "Alt Background", "color": "#f5f5f5" }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "slug": "system",
+          "name": "System UI",
+          "fontFamily": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji"
+        }
+      ],
+      "fontSizes": [
+        { "slug": "sm", "name": "Small", "size": "0.875rem" },
+        { "slug": "base", "name": "Base", "size": "1rem" },
+        { "slug": "lg", "name": "Large", "size": "1.125rem" },
+        { "slug": "xl", "name": "XL", "size": "1.375rem" },
+        { "slug": "xxl", "name": "XXL", "size": "2rem" }
+      ]
+    },
+    "spacing": {
+      "units": ["px", "rem", "%", "vw"],
+      "blockGap": "1.2rem",
+      "spacingSizes": [
+        { "slug": "gutter", "name": "Gutter", "size": "clamp(16px, 4vw, 32px)" },
+        { "slug": "section", "name": "Section Y", "size": "clamp(32px, 6vw, 72px)" }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "text": "var(--wp--preset--color--fg)",
+      "background": "var(--wp--preset--color--bg)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--system)",
+      "lineHeight": "1.6"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "var(--wp--preset--color--accent)"
+        }
+      }
+    },
+    "spacing": {
+      "padding": {
+        "left": "var(--wp--preset--spacing--gutter)",
+        "right": "var(--wp--preset--spacing--gutter)"
+      }
+    },
+    "blocks": {
+      "core/group": {
+        "spacing": {
+          "padding": {
+            "top": "var(--wp--preset--spacing--section)",
+            "bottom": "var(--wp--preset--spacing--section)"
+          }
+        },
+        "border": {
+          "color": "#ddd",
+          "style": "dashed",
+          "width": "1px"
+        },
+        "color": {
+          "background": "var(--wp--preset--color--bg)"
+        }
+      }
+    }
+  },
+  "templateParts": [
+    { "name": "header", "title": "Header", "area": "header" },
+    { "name": "footer", "title": "Footer", "area": "footer" }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "resources/js/frontend.js": {
+    "file": "js/frontend-Dr83SQkU.js",
+    "name": "frontend",
+    "src": "resources/js/frontend.js",
+    "isEntry": true,
+    "css": [
+      "css/frontend-fp91xC9Q.css"
+    ]
+  }
+}

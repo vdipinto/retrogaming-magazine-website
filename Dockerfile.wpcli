@@ -1,0 +1,12 @@
+FROM wordpress:cli
+
+# Build as root so apk can install packages
+USER root
+
+RUN set -eux; \
+    apk add --no-cache --virtual .build-deps $PHPIZE_DEPS && \
+    pecl install redis && \
+    docker-php-ext-enable redis && \
+    apk del .build-deps
+
+# (runtime user is set by docker-compose: user: "33:33")

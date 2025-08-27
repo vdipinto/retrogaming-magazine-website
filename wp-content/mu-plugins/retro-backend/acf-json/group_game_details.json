@@ -1,0 +1,231 @@
+{
+    "key": "group_game_details",
+    "title": "Game Details",
+    "fields": [
+        {
+            "key": "field_release_date",
+            "label": "Release Date",
+            "name": "release_date",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "Y-m-d",
+            "return_format": "Y-m-d",
+            "first_day": 1,
+            "default_to_current_date": 0
+        },
+        {
+            "key": "field_min_players",
+            "label": "Min Players",
+            "name": "min_players",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": 1,
+            "step": 1,
+            "default_value": "",
+            "max": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_max_players",
+            "label": "Max Players",
+            "name": "max_players",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": 1,
+            "step": 1,
+            "default_value": "",
+            "max": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_release_year",
+            "label": "Release Year",
+            "name": "release_year",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "readonly": 1,
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_developer",
+            "label": "Developer",
+            "name": "developer",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "e.g. Nintendo EPD",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_publisher",
+            "label": "Publisher",
+            "name": "publisher",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "e.g. Nintendo",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_esrb_rating",
+            "label": "ESRB Rating",
+            "name": "esrb_rating",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "RP": "RP – Rating Pending",
+                "E": "E – Everyone",
+                "E10+": "E10+ – Everyone 10+",
+                "T": "T – Teen",
+                "M": "M – Mature 17+",
+                "AO": "AO – Adults Only 18+"
+            },
+            "ui": 1,
+            "return_format": "value",
+            "allow_null": 1,
+            "placeholder": "Select rating",
+            "multiple": 0,
+            "default_value": false,
+            "ajax": 0,
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_pegi_rating",
+            "label": "PEGI Rating",
+            "name": "pegi_rating",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "3": "3",
+                "7": "7",
+                "12": "12",
+                "16": "16",
+                "18": "18"
+            },
+            "ui": 1,
+            "return_format": "value",
+            "allow_null": 1,
+            "placeholder": "Select rating",
+            "multiple": 0,
+            "default_value": false,
+            "ajax": 0,
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_official_website",
+            "label": "Official Website",
+            "name": "official_website",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "https:\/\/example.com",
+            "default_value": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "game"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "modified": 1755959268
+}

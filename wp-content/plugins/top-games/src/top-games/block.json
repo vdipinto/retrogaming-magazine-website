@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "top-games/top-games",
+	"version": "1.0.0",
+	"title": "Top Games",
+	"description": "Choose up to 2 games to feature; if none, show the latest with an optional offset you set.",
+	"category": "widgets",
+	"icon": "awards",
+	"textdomain": "top-games",
+  
+	"keywords": ["games", "top", "stories", "featured", "list"],
+  
+	"supports": {
+	  "html": false,
+	  "align": ["wide", "full"],
+	  "anchor": true,
+	  "spacing": { "margin": true },
+	  "color":   { "text": false, "background": false },
+	  "typography": { "fontSize": false }
+	},
+  
+	"attributes": {
+	  "selected":   { "type": "array",   "default": [], "items": { "type": "integer" } },
+	  "items":      { "type": "integer", "default": 1 },
+	  "offset":     { "type": "integer" },
+	  "showThumbs": { "type": "boolean", "default": true },
+	  "variant":    { "type": "string",  "default": "standard" },
+	  "titleSize":  { "type": "string" },
+	  "headingText":{ "type": "string",  "default": "" }
+	},
+  
+	"example": {
+	  "attributes": {
+		"items": 1,
+		"selected": [],
+		"variant": "featured",
+		"headingText": "Top Stories"
+	  }
+	},
+  
+	"editorScript": "file:./index.js",
+	"editorStyle":  "file:./index.css",
+	"style":        "file:./style-index.css"
+  }
+  
