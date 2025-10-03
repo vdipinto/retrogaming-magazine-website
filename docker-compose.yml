@@ -46,6 +46,10 @@ services:
       - WORDPRESS_DB_USER=${DB_USER:-wp}
       - WORDPRESS_DB_PASSWORD=${DB_PASSWORD:-wp}
       - WORDPRESS_DB_NAME=${DB_NAME:-wordpress}
+      - PRETIX_BASE=http://host.docker.internal:8345
+      - PRETIX_ORG=myorg
+      - PRETIX_EVENT=sessionplay
+      - PRETIX_TOKEN=2nrq9i7lzh6ilx3rva2ox178q4rfjhpydsf6z3m4ou38xenc9s8kagshw1e2rl8p  # <-- your real token
     volumes:
       - wp_data:/var/www/html
       - ./wp-content:/var/www/html/wp-content
@@ -96,6 +100,27 @@ services:
     depends_on:
       - db
 
+  # --- ADDED: Pretix standalone ticketing server ---
+  pretix:
+    image: pretix/standalone:stable
+    container_name: pretix
+    restart: unless-stopped
+    volumes:
+      - pretix_data:/data
+      - ./pretix.cfg:/data/pretix.cfg
+    ports:
+       - "8345:80"             # ⬅️ was 8345:8345; Pretix listens on 80 in the container
+    environment:
+      - PRETIX_URL=http://pretix
+      - PRETIX_INSTANCE_NAME=Local Pretix
+      - PRETIX_API_ENABLED=true 
+    command: all              # ⬅️ run all services (web + workers). “start” isn’t the usual entrypoint
+    platform: linux/amd64   # ⬅️ optional: add on Apple Silicon to silence the warning
+  # --- /ADDED ---
+
 volumes:
   db_data:
   wp_data:
+  # --- ADDED: persistent storage for Pretix ---
+  pretix_data:
+  # --- /ADDED ---
