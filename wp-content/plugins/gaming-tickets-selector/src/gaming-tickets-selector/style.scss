@@ -1,0 +1,263 @@
+/**
+ * Front-end styles for Gaming Tickets Selector
+ *
+ * This file will be processed by @wordpress/scripts and
+ * compiled to style-index.css automatically.
+ *
+ * style.scss → build/style-index.css → enqueued via block.json
+ */
+
+/**
+ * Gaming Tickets Selector – Calendar styles
+ * style.scss → build/style-index.css (enqueued via block.json)
+ */
+
+/* 1) Base datepicker CSS first, then our overrides */
+@import "~react-datepicker/dist/react-datepicker.css";
+
+
+
+
+/* 2) Scope everything to the block to avoid theme bleed */
+.wp-block-gaming-tickets-selector {
+  /* Optional frame around the widget area */
+  .gtx-root {
+    padding: .75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+  }
+
+  .gts-message { font-weight: 600; color: #2c3e50; }
+
+  /* Make the calendar stretch */
+  .gts-picker,
+  .gts-calendar,
+  .gts-calendar.react-datepicker {
+    width: 100%;
+  }
+
+  /* =========================
+     CALENDAR (desktop first)
+     ========================= */
+  .gts-calendar {
+    border: 0;
+    box-shadow: none;
+    font-family: inherit;
+    color: #111;
+
+    /* Header (month title + nav) – keep minimal */
+    .react-datepicker__header {
+      background: none;
+      border: 0;
+      padding: 0 0 10px;
+    }
+    .react-datepicker__current-month {
+      font-weight: 800;
+      letter-spacing: .02em;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    /* Weekday header row – black bar with full labels */
+    .react-datepicker__day-names {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      background: #000;
+      color: #fff;
+    }
+    .react-datepicker__day-name {
+      text-align: left;
+      padding: 14px 16px;
+      font-weight: 700;
+      position: relative;
+
+      /* Show full weekday names using the title attribute */
+      [aria-hidden="true"] { display: none !important; }  /* hide Su/Mo/etc */
+      &::before {
+        content: attr(title);  /* 'Sunday', 'Monday', ... */
+      }
+    }
+
+    /* Month grid: perfect squares with light grid lines */
+    .react-datepicker__month { margin: 0; }
+    .react-datepicker__week {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    .react-datepicker__day {
+      width: auto;              /* grid controls width */
+      margin: 0;                /* remove lib spacing */
+      border: 1px solid #e9e9e9;
+      border-right: 0;
+      border-bottom: 0;
+      padding: 0;
+      aspect-ratio: 1 / 1;      /* square cells */
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+    .react-datepicker__week:first-child .react-datepicker__day { border-top: 1px solid #e9e9e9; }
+    .react-datepicker__week .react-datepicker__day:first-child { border-left: 1px solid #e9e9e9; }
+    .react-datepicker__week:last-child  .react-datepicker__day { border-bottom: 1px solid #e9e9e9; }
+    .react-datepicker__week .react-datepicker__day:last-child  { border-right: 1px solid #e9e9e9; }
+
+    /* Outside month + disabled days */
+    .react-datepicker__day--outside-month,
+    .react-datepicker__day--disabled {
+      background: #f2f2f2;
+      color: #b7b7b7;
+    }
+
+    /* ====== Cell inner layout from renderDayContents ====== */
+    .gts-cell {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .gts-daynum {
+      font-weight: 700;
+      padding: 8px 10px;
+    }
+
+    /* Black strip with the instance title */
+    .gts-strip {
+      margin-top: auto;
+      background: #000;
+      color: #fff;
+      display: block;
+      width: 100%;
+      padding: 6px 8px;
+      line-height: 1.2;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      font-size: 13px;
+      white-space: normal;     /* allow wrapping */
+      word-break: break-word;  /* wrap long labels */
+    }
+
+    /* Sold-out message block */
+    .gts-msg {
+      background: #000;
+      color: #fff;
+      display: block;
+      width: 100%;
+      padding: 12px;
+      font-style: italic;
+      font-weight: 800;
+      font-size: 12px;
+      line-height: 1.15;
+    }
+
+	/* Sold-out message block (italic condensed) */
+    .gts-msg {
+		background: #000;
+		color: #fff;
+		display: block;
+		width: 100%;
+		padding: 12px;
+		font-style: italic;
+		font-weight: 800;
+		font-size: 12px;
+		line-height: 1.15;
+	  }
+  
+	  /* 👉 Today badge */
+	  .react-datepicker__day--today .gts-cell { position: relative; }
+	  .react-datepicker__day--today .gts-daynum {
+		align-self: flex-end;           /* move to top-right */
+		margin: 6px 6px 0 0;
+		background: #b30073;            /* magenta fill */
+		color: #fff;
+		border-radius: 9999px;
+		width: 28px;
+		height: 28px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 800;
+		padding: 0;
+	  }
+  
+
+
+
+    /* Stock status hooks (your dayClassName returns these) */
+    .react-datepicker__day.gts-day-onsale {
+      box-shadow: inset 0 0 0 2px #2ecc71;
+    }
+    .react-datepicker__day.gts-day-limited {
+      box-shadow: inset 0 0 0 2px #ffe58f;
+    }
+    .react-datepicker__day.gts-day-soldout {
+      cursor: not-allowed;
+      filter: grayscale(0.15);
+    }
+
+    /* Keyboard/selected focus */
+    .react-datepicker__day--keyboard-selected,
+    .react-datepicker__day--selected {
+      outline: 2px solid #111;
+      outline-offset: -2px;
+      background: none;
+    }
+
+    /* Hover feedback (only for selectable days) */
+    .react-datepicker__day:not(.react-datepicker__day--disabled):hover {
+      background: #fafafa;
+    }
+  }
+
+  /* =========================
+     RESPONSIVE (mobile list)
+     ========================= */
+  @media (max-width: 640px) {
+    .gts-calendar {
+      .react-datepicker__day-names { display: none; }
+      .react-datepicker__week { grid-template-columns: 1fr; }
+
+      .react-datepicker__day {
+        aspect-ratio: auto;
+        min-height: 62px;
+        background: #eee;
+        border-left: 0;
+        border-right: 0;
+        border-top: 1px solid #ddd;
+        border-bottom: 0;
+      }
+      .react-datepicker__week:last-child .react-datepicker__day:last-child {
+        border-bottom: 1px solid #ddd;
+      }
+
+      .gts-daynum {
+        padding: 10px 14px 6px;
+        font-weight: 700;
+        opacity: .8;
+      }
+
+      .gts-strip {
+        margin-top: 6px;
+        padding: 14px;
+        font-size: 14px;
+      }
+
+      .gts-msg {
+        margin-top: 0;
+        padding: 12px 14px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  /* =========================
+     MISC FIXES / HARDENING
+     ========================= */
+  .gts-calendar .react-datepicker__day-name::before,
+  .gts-calendar .react-datepicker__day-name::after {
+    text-shadow: none;
+  }
+
+  .react-datepicker-popper { z-index: 10; }
+}

@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/gaming-tickets-selector",
+	"version": "0.1.0",
+	"title": "Gaming Tickets Selector",
+	"category": "widgets",
+	"icon": "tickets-alt",
+	"description": "Calendar + qty selector that uses a WP REST proxy for secure ticketing calls.",
+	"textdomain": "gaming-tickets-selector",
+	"supports": {
+	  "html": false
+	},
+	"attributes": {
+	  "eventId": {
+		"type": "string",
+		"default": "sessionplay"
+	  },
+	  "maxPerOrder": { "type": "number", "default": 2 }
+	},
+	"example": {
+	  "attributes": {
+		"eventId": "sessionplay"
+	  }
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript":   "file:./view.js", 
+	"viewStyle":    "file:./view.css"  
+  }
+  
