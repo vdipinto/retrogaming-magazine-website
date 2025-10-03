@@ -1,9 +1,21 @@
+# Dockerfile.wp
 FROM wordpress:php8.3-apache
 
 RUN set -eux; \
     apt-get update; \
-    apt-get install -y --no-install-recommends $PHPIZE_DEPS; \
+    # Needed to build redis and to fetch WP-CLI
+    apt-get install -y --no-install-recommends $PHPIZE_DEPS curl; \
+    \
+    # Install & enable Redis extension
     pecl install redis; \
     docker-php-ext-enable redis; \
+    \
+    # Install WP-CLI (global)
+    curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar; \
+    chmod +x /usr/local/bin/wp; \
+    # Sanity check (won't fail build if WordPress files not present yet)
+    wp --info || true; \
+    \
+    # Clean up
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
     rm -rf /var/lib/apt/lists/*
